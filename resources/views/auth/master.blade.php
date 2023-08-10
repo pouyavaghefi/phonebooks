@@ -3,8 +3,9 @@
     <head>
         @include('layouts.init.head')
     </head>
-    <body>
+    <body dir="rtl">
         @yield('wrapper')
         @include('layouts.init.scripts')
+        @include('sweetalert::alert')
     </body>
 </html>

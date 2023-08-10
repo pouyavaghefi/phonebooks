@@ -15,6 +15,7 @@
         </div>
 
         @include('layouts.init.scripts')
+        @include('sweetalert::alert')
     </body>
 </html>
 
