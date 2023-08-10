@@ -11,15 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contacts', function (Blueprint $table) {
+        Schema::create('phonebook_categories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('phonebook_id');
-            $table->string('first_name');
-            $table->string('last_name')->nullable();
-            $table->string('avatar')->nullable();
+            $table->string('name');
             $table->timestamps();
-
-            $table->foreign('phonebook_id')->on('phonebooks')->references('id')->onDelete('CASCADE');
         });
     }
 
@@ -28,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('contacts');
+        Schema::dropIfExists('phonebook_categories');
     }
 };

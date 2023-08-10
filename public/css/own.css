@@ -2,6 +2,27 @@
     float:right !important;
 }
 
+.text-aligned{
+    text-align:right !important;
+}
+
+.white-color{
+    color:white !important;
+}
+
+/***************** Custom Fonts *****************/
+
+@font-face {
+    font-family: 'BHoma';
+    src: url('/fonts/BHoma.eot?#') format('eot'),  /* IE6–8 */
+    url('/fonts/BHoma.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('/fonts/BHoma.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+
+.BHoma {
+    font-family: BHoma, Arial, Helvetica, sans-serif;
+}
+
 @font-face {
     font-family: 'BKoodakBold';
     src: url('/fonts/BKoodakBold.eot?#') format('eot'),  /* IE6–8 */

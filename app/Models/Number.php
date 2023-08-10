@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Email extends Model
+class Number extends Model
 {
     use HasFactory;
 
-    protected $table = 'emails';
+    protected $table = 'numbers';
     protected $guarded = [];
 
     public function contact()

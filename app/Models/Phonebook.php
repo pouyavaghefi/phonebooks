@@ -21,4 +21,9 @@ class Phonebook extends Model
     {
         return $this->hasMany(Contact::class);
     }
+
+    public function category()
+    {
+        return $this->belongsTo(PhonebookCategory::class, 'phonebook_category_id');
+    }
 }

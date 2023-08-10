@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Email extends Model
+class PhonebookCategory extends Model
 {
     use HasFactory;
 
-    protected $table = 'emails';
+    protected $table = 'phonebook_categories';
     protected $guarded = [];
 
-    public function contact()
+    public function phonebooks()
     {
-        return $this->belongsTo(Contact::class);
+        return $this->hasMany(Phonebook::class, 'phonebook_category_id');
     }
 }
