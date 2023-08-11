@@ -13,9 +13,20 @@ use Alert;
 
 class ContactsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $contacts = Contact::all();
+        $query = Contact::query();
+
+        if ($request->has('search')) {
+            $searchTerm = $request->input('search');
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('first_name', 'LIKE', "%$searchTerm%")
+                    ->orWhere('last_name', 'LIKE', "%$searchTerm%");
+            });
+        }
+
+        $contacts = $query->get();
+
         return view('panel.contacts.index', compact('contacts'));
     }
 

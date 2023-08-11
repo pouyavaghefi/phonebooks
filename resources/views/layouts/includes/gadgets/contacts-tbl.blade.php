@@ -16,7 +16,7 @@
                 <tr>
                     <th>#</th>
                     <th>نام</th>
-                    <th>نوع</th>
+                    <th>نام دفترچه تلفن مرتبط</th>
                     <th>تاریخ ایجاد</th>
                     <th>عملیات</th>
                 </tr>
@@ -26,8 +26,8 @@
                 @forelse($contacts as $contact)
                     <tr>
                         <td>{{ ++$menuCounter }}</td>
-                        <td>{{ $contact->name }}</td>
-                        <td>{{ $contact->type }}</td>
+                        <td>{{ $contact->first_name }}</td>
+                        <td>{{ $contact->phonebook->name }}</td>
                         <td>{{ $contact->created_at }}</td>
                         <td>
                             <div class="btn-group" role="group">
@@ -43,7 +43,11 @@
                 @empty
                     <tr>
                         <td colspan="5" class="text-center">
-                            هنوز هیچ مخاطبی اضافه نشده است
+                            @if(request('search'))
+                                هیچ نتیجه‌ای برای "{{ request('search') }}" پیدا نشد.
+                            @else
+                                هنوز هیچ مخاطبی اضافه نشده است
+                            @endif
                         </td>
                     </tr>
                 @endforelse
