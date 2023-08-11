@@ -1,9 +1,10 @@
 @extends('layouts.master')
 
-@section('title', 'Add new contact')
+@section('title', 'Show contact')
 
 @php
     use App\View\Components\PhonebookLink;
+    use App\View\Components\PhonebookContactsLinks2;
 @endphp
 
 @section('wrapper')

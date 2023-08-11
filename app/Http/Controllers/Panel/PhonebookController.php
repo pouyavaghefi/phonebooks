@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Phonebook;
 use Illuminate\Http\Request;
 use App\Models\PhonebookCategory;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PhonebookController extends Controller
 {
@@ -63,4 +64,32 @@ class PhonebookController extends Controller
     {
         return view('panel.phonebooks.show', compact('phonebook'));
     }
+
+    public function edit(Phonebook $phonebook)
+    {
+        return view('panel.phonebooks.edit', compact('phonebook'));
+    }
+
+    public function doEdit(Request $request, $id)
+    {
+        $data = $request->validate([
+            'name' => 'required',
+            'type' => 'required',
+        ]);
+
+        $phonebook = Phonebook::where('id',$id)->update([
+            'name' => $data['name'],
+            'phonebook_category_id' => $data['type'],
+        ]);
+
+        return redirect()->route('panel.phonebooks.all', $id);
+    }
+
+    public function destroy(Request $request, Phonebook $phonebook)
+    {
+        $phonebook->delete();
+
+        return redirect()->route('panel.phonebooks.all')->withSuccess('Phonebook deleted successfully.');
+    }
+
 }

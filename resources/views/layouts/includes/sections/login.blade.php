@@ -1,5 +1,4 @@
 <section class="container-fluid bg-auth-form d-flex justify-content-center align-items-center">
-    @include('layouts.includes.partials.errors')
     <section class="row bg-gradiant-green-blue">
         <section class="col-12 bg-white p-5 rounded BKoodakBold">
             <h2 class="h5 pb-3" style="text-align:right !important">ورود به حساب کاربری</h2>

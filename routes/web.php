@@ -42,6 +42,8 @@ Route::middleware(['auth'])->prefix('panel')->name('panel.')->group(function () 
 
         Route::get('/show/{contact}', [ContactsController::class, 'show'])->name('show');
 
+        Route::get('/new', [ContactsController::class, 'new'])->name('new');
+
         Route::get('/add/{phonebook}', [ContactsController::class, 'add'])->name('add');
         Route::post('/add/{phonebook}', [ContactsController::class, 'doAdd']);
 

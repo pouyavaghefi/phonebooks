@@ -85,4 +85,38 @@ class ContactsController extends Controller
     {
         return view('panel.contacts.show', compact('contact'));
     }
+
+    public function edit(Contact $contact)
+    {
+        return view('panel.contacts.edit', compact('contact'));
+    }
+
+    public function doEdit(Request $request, $id)
+    {
+        $data = $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'nullable',
+            'address' => 'nullable',
+            'email' => 'nullable',
+            'number' => 'required',
+        ]);
+
+        $contact = Contact::find($id)->update([
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+        ]);
+
+        $this->addEmails($request->email, $id);
+        $this->addAddresses($request->address, $id);
+        $this->addNumbers($request->number, $id);
+
+        return redirect()->route('panel.contacts.show',$id);
+    }
+
+    public function destroy(Contact $contact)
+    {
+        $contact->delete();
+
+        return redirect()->route('panel.phonebooks.show', $contact->phonebook->id);
+    }
 }

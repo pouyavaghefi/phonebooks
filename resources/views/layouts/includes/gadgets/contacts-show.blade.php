@@ -11,9 +11,7 @@
             </div>
             <div class="col-6">
                 <x-phonebook-link />
-                <div style="float:left">
-                    <a href="{{ route('panel.phonebooks.show', $contact->phonebook_id) }}" class="btn btn-info BJadidBold">همه مخابین این دفترچه</a>
-                </div>
+                <x-phonebook-contacts-links2 :contact="$contact" />
             </div>
         </div>
         <div class="">

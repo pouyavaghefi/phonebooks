@@ -7,3 +7,14 @@
         @include('layouts.includes.gadgets.phonebooks-tbl')
     </main>
 @endsection
+
+@section('scripts')
+<script>
+    function confirmDelete(contactCount) {
+        if (contactCount > 0) {
+            return confirm('این دفترچه تلفن دارای مخاطب است، ایا از حذف آن اطمینان دارید؟');
+        }
+        return true;
+    }
+</script>
+@endsection

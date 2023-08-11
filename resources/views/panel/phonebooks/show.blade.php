@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Your custom phonebook')
+@section('title', 'Show phonebook')
 
 @php
     use App\View\Components\PhonebookLink;

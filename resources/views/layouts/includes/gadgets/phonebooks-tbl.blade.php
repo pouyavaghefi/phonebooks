@@ -29,7 +29,7 @@
                     <tr>
                         <td>{{ ++$menuCounter }}</td>
                         <td><a href="{{ route('panel.phonebooks.show', $phonebook->id) }}">{{ $phonebook->name }}</a></td>
-                        <td>{{ $phonebook->type }}</td>
+                        <td>{{ $phonebook->category->name }}</td>
                         <td>{{ $phonebook->created_at }}</td>
                         <td>
                             <div class="btn-group" role="group">
@@ -38,7 +38,7 @@
                                 <form action="{{ route('panel.phonebooks.delete', $phonebook->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger">حذف</button>
+                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirmDelete({{ count($phonebook->contacts) }})">حذف</button>
                                 </form>
                             </div>
                         </td>

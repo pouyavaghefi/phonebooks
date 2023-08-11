@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Auth;
 use Alert;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -18,12 +20,15 @@ class LoginController extends Controller
     {
         $data = $request->validate([
             'email' => 'required|email',
-            'password' => 'required|min:8',
+            'password' => 'required',
         ]);
 
-        if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
+        $user = User::where('email', $request->email)->first();
+
+        if ($user && Hash::check($data['password'], $user->password)) {
+            auth()->loginUsingId($user->id);
             return redirect()->route('panel.index')->withSuccess('ورود با موفقیت انجام شد');
-        } else {
+        }else{
             Alert::error('خطا', 'ورود ناموفق بود. لطفا مجددا تلاش کنید');
             return redirect()->route('auth.login');
         }

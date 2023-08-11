@@ -17,7 +17,7 @@
         </div></a>
     </div>
     <div class="col-sm-6 col-lg-3">
-        <a href="{{ route('panel.contacts.add') }}"><div class="card text-white bg-gradiant-green-blue mb-3" style="max-width: 18rem;">
+        <a href="{{ route('panel.contacts.new') }}"><div class="card text-white bg-gradiant-green-blue mb-3" style="max-width: 18rem;">
             <div class="card-header d-flex justify-content-between align-items-center"><span><i class="fas fa-newspaper"></i></span> <span class="badge badge-pill right">45</span></div>
             <div class="card-body">
                 <h5 class="card-title">اضافه کردن مخاطب جدید</h5>
@@ -32,9 +32,4 @@
             </div>
         </div></a>
     </div>
-
-
-
-
-
 </div>
