@@ -9,6 +9,7 @@ use App\Models\Email;
 use App\Models\Number;
 use App\Models\Phonebook;
 use Illuminate\Http\Request;
+use Alert;
 
 class ContactsController extends Controller
 {
@@ -118,5 +119,16 @@ class ContactsController extends Controller
         $contact->delete();
 
         return redirect()->route('panel.phonebooks.show', $contact->phonebook->id);
+    }
+
+    public function new()
+    {
+        $phonebook_counts = Phonebook::count();
+        if($phonebook_counts >= 1){
+            return view('panel.contacts.new');
+        }else{
+            Alert::alert('توجه', 'در حال حاضر شما هیچ دفترچه تلفنی ایجاد نکرده اید. لطفا ابتدا یک دفترچه تلفن ثبت نمایید.', 'Error');
+            return redirect()->back();
+        }
     }
 }

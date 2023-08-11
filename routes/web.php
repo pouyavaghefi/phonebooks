@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Panel\PanelController;
 use App\Http\Controllers\Panel\PhonebookController;
 use App\Http\Controllers\Panel\ContactsController;
+use App\Http\Controllers\Auth\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,8 @@ use App\Http\Controllers\Panel\ContactsController;
 
 Route::middleware(['auth'])->prefix('panel')->name('panel.')->group(function () {
     Route::get('/', [PanelController::class, 'index'])->name('index');
+
+    Route::post('/logout', LogoutController::class)->name('logout');
 
     Route::prefix('phonebooks')->name('phonebooks.')->group(function () {
         Route::get('/', [PhonebookController::class, 'index'])->name('all');
