@@ -7,6 +7,7 @@ use App\Http\Controllers\Panel\PanelController;
 use App\Http\Controllers\Panel\PhonebookController;
 use App\Http\Controllers\Panel\ContactsController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\LandingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,8 @@ use App\Http\Controllers\Auth\LogoutController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/', [LandingController::class, 'index'])->name('index');
 
 Route::middleware(['auth'])->prefix('panel')->name('panel.')->group(function () {
     Route::get('/', [PanelController::class, 'index'])->name('index');

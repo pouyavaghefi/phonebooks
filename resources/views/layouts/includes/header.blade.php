@@ -1,5 +1,5 @@
 <nav class="navbar  navbar-light bg-gradiant-green-blue nav-shadow">
-    <a class="navbar-brand" href="#">My Blog</a>
+    <a class="navbar-brand" href="#">PhoneBook</a>
     <span class="">
 
             <span class="dropdown">
