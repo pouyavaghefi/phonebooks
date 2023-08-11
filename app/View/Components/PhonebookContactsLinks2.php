@@ -20,6 +20,6 @@ class PhonebookContactsLinks2 extends Component
 
     public function render()
     {
-        return view('components.phonebook-contacts-links');
+        return view('components.phonebook-contacts-links2');
     }
 }

@@ -19,7 +19,10 @@
                     <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-                <button type="submit" class="btn btn-sm btn-primary BJadidBold" style="float:right">ورود</button>
+                <div class="btn-toolbar" role="toolbar">
+                    <button type="submit" class="btn btn-sm btn-primary BJadidBold" style="float:right">ورود</button>
+                    <a href="{{ route('auth.register') }}" class="btn btn-sm btn-link BJadidBold" class="right-floated" style="float:left">ثبت نام در سایت</a>
+                </div>
             </form>
         </section>
     </section>

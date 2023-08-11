@@ -7,9 +7,7 @@
                 </h2>
             </div>
             <div class="col-6">
-                <div style="float:left">
-                    <a href="{{ route('panel.contacts.all', $phonebook->id) }}" class="btn btn-info BJadidBold">همه مخابین این دفترچه</a>
-                </div>
+                <x-phonebook-link />
             </div>
         </div>
         <div class="table-responsive">
@@ -25,16 +23,16 @@
                 </thead>
                 <tbody>
                 @php($menuCounter = 0)
-                @forelse($phonebooks as $phonebook)
+                @forelse($contacts as $contact)
                     <tr>
                         <td>{{ ++$menuCounter }}</td>
-                        <td>{{ $phonebook->name }}</td>
-                        <td>{{ $phonebook->type }}</td>
-                        <td>{{ $phonebook->created_at }}</td>
+                        <td>{{ $contact->name }}</td>
+                        <td>{{ $contact->type }}</td>
+                        <td>{{ $contact->created_at }}</td>
                         <td>
                             <div class="btn-group" role="group">
-                                <a href="{{ route('panel.phonebooks.edit', $phonebook->id) }}" class="btn btn-sm btn-primary">ویرایش</a>
-                                <form action="{{ route('panel.phonebooks.delete', $phonebook->id) }}" method="POST">
+                                <a href="{{ route('panel.contacts.edit', $contact->id) }}" class="btn btn-sm btn-primary">ویرایش</a>
+                                <form action="{{ route('panel.contacts.delete', $contact->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger">حذف</button>
@@ -45,7 +43,7 @@
                 @empty
                     <tr>
                         <td colspan="5" class="text-center">
-                            هنوز هیچ دفترچه تلفنی ایجاد نشده است
+                            هنوز هیچ مخاطبی اضافه نشده است
                         </td>
                     </tr>
                 @endforelse

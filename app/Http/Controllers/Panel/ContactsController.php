@@ -13,6 +13,12 @@ use Alert;
 
 class ContactsController extends Controller
 {
+    public function index()
+    {
+        $contacts = Contact::all();
+        return view('panel.contacts.index', compact('contacts'));
+    }
+
     public function all(Phonebook $phonebook)
     {
         return view('panel.contacts.add', compact('phonebook'));
